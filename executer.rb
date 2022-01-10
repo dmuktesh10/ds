@@ -19,12 +19,29 @@ def call
 
   target = list.find(15)
   puts "target #{target.inspect}"
-  list.delete(4)
-  list.delete(15)
-  list.delete(12)
-  list.delete(-23)
-rescue DataNotFoundError
-  puts "Data Not Found"
+  list.delete_node(4)
+  list.delete_node(15)
+  list.delete_node(12)
+  #list.delete_node(-23)
+
+  list.add(3)
+  list.add(33)
+  list.add(234)
+
+
+  list.print_list
+  list.delate_at(0)
+  list.print_list
+  list.delate_at(2)
+  list.print_list
+  list.delate_at(22)
+  list.print_list
+
+  list.destroy
+  list.print_list
+
+rescue DataNotFoundError => ex
+  puts ex.message
 end
 
 call

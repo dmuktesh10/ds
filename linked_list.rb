@@ -23,9 +23,12 @@ class LinkedList
 
   def print_list
     current_node = head
+    print "LIST: "
     while(!current_node.nil?)
+      print " #{current_node.data} "
       current_node = current_node.next
     end
+    puts ''
   end
   
   def tail
@@ -36,7 +39,7 @@ class LinkedList
     current_node
   end
 
-  def delete(data)
+  def delete_node(data)
     if head.data == data
       self.head = head.next
     else
@@ -45,6 +48,30 @@ class LinkedList
       target.next = nil
     end
     puts "DELETED #{data}"
+  end
+
+  def delate_at(index)
+    prev = nil
+    current_node = head
+    i = 0
+    while i < index && !current_node.nil?
+      prev = current_node
+      current_node = current_node.next
+      i += 1
+    end
+    raise DataNotFoundError.new('Location not found') if current_node.nil?
+
+    if prev.nil?
+      self.head = current_node.next 
+    else 
+      prev.next = current_node.next 
+    end
+    puts "DELETED #{current_node.data} at location #{i}"
+    current_node.next = nil
+  end
+
+  def destroy
+    self.head = nil
   end
 
   def find(data, with_previous: false)
