@@ -51,6 +51,21 @@ class LinkedList
   end
 
   def delate_at(index)
+    prev, current_node = find_at(index, with_previous: true)
+    if prev.nil?
+      self.head = current_node.next
+    else 
+      prev.next = current_node.next
+    end
+    puts "DELETED #{current_node.data} at location #{index}"
+    current_node.next = nil
+  end
+
+  def destroy
+    self.head = nil
+  end
+
+  def find_at(index, with_previous: false)
     prev = nil
     current_node = head
     i = 0
@@ -60,18 +75,7 @@ class LinkedList
       i += 1
     end
     raise DataNotFoundError.new('Location not found') if current_node.nil?
-
-    if prev.nil?
-      self.head = current_node.next 
-    else 
-      prev.next = current_node.next 
-    end
-    puts "DELETED #{current_node.data} at location #{i}"
-    current_node.next = nil
-  end
-
-  def destroy
-    self.head = nil
+    with_previous ? [prev, current_node] : current_node
   end
 
   def find(data, with_previous: false)

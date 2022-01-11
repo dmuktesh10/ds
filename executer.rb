@@ -22,12 +22,14 @@ def call
   list.delete_node(4)
   list.delete_node(15)
   list.delete_node(12)
-  #list.delete_node(-23)
 
   list.add(3)
   list.add(33)
   list.add(234)
 
+  puts "data at #{0} index is #{list.find_at(0).data}"
+  puts "data at #{1} index is #{list.find_at(1).data}"
+  puts "data at #{2} index is #{list.find_at(2).data}"
 
   list.print_list
   list.delate_at(0)
@@ -39,6 +41,10 @@ def call
 
   list.destroy
   list.print_list
+
+
+  list.delete_node(-23)
+  list.find_at(22)
 
 rescue DataNotFoundError => ex
   puts ex.message
