@@ -1,3 +1,4 @@
+# typed: false
 require './node'
 require 'pry-byebug'
 
@@ -88,5 +89,32 @@ class LinkedList
     raise DataNotFoundError.new('Data not found') if current_node.nil?
 
     with_previous ? [prev, current_node] : current_node
+  end
+
+  def search(data, current_node=head)
+    # find data recursively
+    raise DataNotFoundError.new if current_node.nil?
+    current_node.data == data ? current_node : search(data, current_node.next)
+  end
+
+  def size
+    counter = 0
+    current_node = head
+    while(!current_node.nil?)
+      counter +=1
+      current_node  = current_node.next
+    end
+    counter
+  end
+
+  def length(start_node=head)
+    # find link list size recursively
+    start_node.nil? ? 0 : (1+length(start_node.next))
+  end
+
+  def find_nth_from_last(n)
+    raise DataNotFoundError.new("invalid node form last requested") if (size < n || n <= 0)
+    index = size - n 
+    find_at(index)
   end
 end

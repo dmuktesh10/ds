@@ -1,3 +1,4 @@
+# typed: true
 require './linked_list'
 require './data_not_found_error'
 
@@ -36,14 +37,21 @@ def call
   list.print_list
   list.delate_at(2)
   list.print_list
-  list.delate_at(22)
-  list.print_list
+
+  puts "1 from last #{list.find_nth_from_last(1).data}"
+  puts "2 from last #{list.find_nth_from_last(2).data}"
+  puts "3 from last #{list.find_nth_from_last(3).data}"
+
+  puts "linked lis size iteratively: #{list.size}"
+  puts "linked lis size recursively: #{list.length}"
+
+  puts "search 33 in list recursively: #{list.search(234).inspect} "
 
   list.destroy
   list.print_list
 
 
-  list.delete_node(-23)
+#  list.delete_node(-23)
   list.find_at(22)
 
 rescue DataNotFoundError => ex
