@@ -114,7 +114,29 @@ class LinkedList
 
   def find_nth_from_last(n)
     raise DataNotFoundError.new("invalid node form last requested") if (size < n || n <= 0)
-    index = size - n 
+    index = size - n
     find_at(index)
+  end
+
+  def middle
+    find_at(size / 2).data
+  end
+
+  def count_data_occurance(data)
+    current_node = head 
+    count = 0
+    while !current_node.nil?
+      count += 1 if current_node.data == data
+      current_node = current_node.next
+    end
+    count
+  end
+
+  def has_loop?
+    curren_node = head 
+    while(!curren_node.nil? && !curren_node.next.equal?(head))
+      curren_node = curren_node.next
+    end
+    !curren_node.nil?
   end
 end

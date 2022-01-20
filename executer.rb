@@ -45,11 +45,29 @@ def call
   puts "linked lis size iteratively: #{list.size}"
   puts "linked lis size recursively: #{list.length}"
 
-  puts "search 33 in list recursively: #{list.search(234).inspect} "
+  puts "search 234 in list recursively: #{list.search(234).inspect} "
 
   list.destroy
+  list = LinkedList.new
+  list.add(23)
+  list.add(45)
+  list.add(-2)
+  list.add(0)
+  list.add(443)
+  list.add(4334345)
   list.print_list
-
+  puts "middle of list: #{list.middle}"
+  list.add(-3223)
+  list.print_list
+  puts "middle of list: #{list.middle}"
+  list.add(22)
+  list.print_list
+  puts "middle of list: #{list.middle}"
+  list.add(443)
+  puts "443 occured #{list.count_data_occurance(443)} times"
+  puts "has loop: #{list.has_loop?}"
+  list.tail.next = list.head 
+  puts "has loop: #{list.has_loop?}"
 
 #  list.delete_node(-23)
   list.find_at(22)
