@@ -133,10 +133,15 @@ class LinkedList
   end
 
   def has_loop?
+    # when data duplication is allowed 
     curren_node = head 
     while(!curren_node.nil? && !curren_node.next.equal?(head))
       curren_node = curren_node.next
     end
     !curren_node.nil?
+  end
+
+  def detect_loop?
+    # when only uniq element present in link list
   end
 end

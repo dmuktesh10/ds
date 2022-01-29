@@ -1,8 +1,9 @@
 # typed: true
 require './linked_list'
+require './stack'
 require './data_not_found_error'
 
-def call
+def call_list
   list = LinkedList.new
   list.add(4)
   list.add(10)
@@ -76,4 +77,18 @@ rescue DataNotFoundError => ex
   puts ex.message
 end
 
-call
+def call_stack
+  stack = Stack.new
+  puts "empty stack ? #{stack.empty?}" 
+  puts "add 2 to stack: #{stack.push(2)}"
+  puts "print stack: #{stack.print_stack}"
+  puts "add 0,32,434,-23,4345 to stack:"
+  stack.push(0)
+  stack.push(32)
+  stack.push(434)
+  stack.push(-23)
+  stack.push(4345)
+  stack.print_stack
+end
+call_stack
+# call_list
