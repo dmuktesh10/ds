@@ -1,7 +1,8 @@
 # typed: true
 require './linked_list'
 require './stack'
-require './data_not_found_error'
+require './queue'
+require './ds_errors'
 
 def call_list
   list = LinkedList.new
@@ -81,7 +82,8 @@ def call_stack
   stack = Stack.new
   puts "empty stack ? #{stack.empty?}" 
   puts "add 2 to stack: #{stack.push(2)}"
-  puts "print stack: #{stack.print_stack}"
+  print "print stack: " 
+  stack.print_stack
   puts "add 0,32,434,-23,4345 to stack:"
   stack.push(0)
   stack.push(32)
@@ -90,5 +92,21 @@ def call_stack
   stack.push(4345)
   stack.print_stack
 end
-call_stack
+
+def call_queue
+  queue = Queue.new 
+  puts "is queue empty? => #{queue.empty?}"
+  queue.add(4)
+  puts "is queue empty? => #{queue.empty?}"
+  queue.add(233)
+  queue.add(0)
+  queue.add(-44)
+  queue.add(324)
+  queue.print_queue
+  puts "removed: #{queue.remove}\n\n"
+  queue.print_queue
+
+end
+call_queue
+# call_stack
 # call_list

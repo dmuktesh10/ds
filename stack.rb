@@ -1,4 +1,5 @@
 require './node'
+
 class Stack
 
   attr_accessor :top
@@ -13,7 +14,7 @@ class Stack
 
   def push(data)
     node = Node.new(data)
-    if !empty?
+    if !self.empty?
       node.next = top
     end
     self.top = node
@@ -22,7 +23,6 @@ class Stack
 
   def print_stack
     current = top
-    
     while(!current.next.nil?)
       print "#{current.data} =>"
       current = current.next
