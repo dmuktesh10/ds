@@ -21,6 +21,12 @@ class Stack
     top
   end
 
+  def pop
+    poped_node = top 
+    self.top = top.next 
+    poped_node
+  end
+
   def print_stack
     current = top
     while(!current.next.nil?)
@@ -28,5 +34,15 @@ class Stack
       current = current.next
     end
     print current.data
+  end
+
+  def size
+    count = 0
+    current = top 
+    while(!current.nil?)
+      count += 1
+      current = current.next
+    end 
+    count
   end
 end 

@@ -91,6 +91,10 @@ def call_stack
   stack.push(-23)
   stack.push(4345)
   stack.print_stack
+  puts "size: #{stack.size}"
+  puts "poped: #{stack.pop.data}\n\n"
+  stack.print_stack
+  puts "size: #{stack.size}"
 end
 
 def call_queue
@@ -103,10 +107,10 @@ def call_queue
   queue.add(-44)
   queue.add(324)
   queue.print_queue
-  puts "removed: #{queue.remove}\n\n"
+  puts "removed: #{queue.remove.data}\n\n"
   queue.print_queue
-
+  puts "size: #{queue.size}"
 end
-call_queue
-# call_stack
+#call_queue
+call_stack
 # call_list
