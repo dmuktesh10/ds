@@ -41,7 +41,17 @@ class Queue
       node = head 
       self.head = head.next
     end
-    node.data
+    node
+  end
+
+  def size
+    current = head
+    count = 0 
+    while(!current.nil?) 
+      count +=1
+      current = current.next
+    end
+    count
   end
 
 end
