@@ -2,6 +2,7 @@
 require './linked_list'
 require './stack'
 require './queue'
+require './binary_tree'
 require './ds_errors'
 
 def call_list
@@ -111,6 +112,32 @@ def call_queue
   queue.print_queue
   puts "size: #{queue.size}"
 end
+
+def call_binary_tree
+  tree = BinaryTree.new
+  print "level tree traversal: " 
+  tree.level_traversal
+  tree.add(4)
+  puts ""
+  print "level tree traversal: "
+  tree.level_traversal
+  tree.add(-67)
+  tree.add(234)
+  tree.add(34)
+  tree.add(344)
+  tree.add(2)
+  tree.add(-34)
+  tree.add(0)
+  tree.add(234554)
+  puts ""
+  print "level tree traversal: "
+  tree.level_traversal
+  tree.delete(2)
+  print "\nlevel tree traversal: "
+  tree.level_traversal
+  # puts tree.inspect
+end
 #call_queue
-call_stack
-# call_list
+#call_stack
+#call_list
+call_binary_tree
